@@ -21,6 +21,14 @@ RELATIVE_TWO_COMPLEMENT = 2
 LIVE_MEMORY_SLOT_ID = 8
 logger = logging.getLogger(__name__)
 
+# enc. 1 - 8: 22-29 
+# enc. 9-16: 30, 31, 33, 34, 52, 53, 54, 55 
+# enc 1 +shift: 24, 
+# enc 9 +shift: 25 (absolute control) 
+# enc 1 push: 26, 
+# enc 9 push: 27 (switched toggle setting) all others are set to control, relative. channel 2 pads are set to ch11, but standard midi notes
+
+
 class MiniLabMk2(MiniLab):
     session_component_type = SessionComponent
     encoder_msg_channel = 1
